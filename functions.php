@@ -130,11 +130,14 @@
 	function starkers_script_enqueuer() {
 		wp_register_script( 'site', get_template_directory_uri().'/js/site.js', array( 'jquery' ) );
 		wp_enqueue_script( 'site' );
-
-		wp_register_style( 'screen', get_stylesheet_directory_uri().'/style.css', '', '', 'screen' );
-        wp_enqueue_style( 'screen' );
-	}	
-
+// enabled bootstrap 
+		wp_register_style( 'bootstrap', get_stylesheet_directory_uri().'/css/bootstrap.min.css', array(), false, 'all' );
+        wp_enqueue_style( 'bootstrap' );
+//custom css from style 
+		wp_register_style( 'style', get_stylesheet_directory_uri().'/style.css', array(), false, 'all' );
+        wp_enqueue_style( 'style' );
+	}
+add_action('wp_enque_scripts','load_stylesheets');
 	/* ========================================================================================================================
 	
 	Comments
