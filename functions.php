@@ -37,10 +37,7 @@
 	   'unlink-homepage-logo' => true, 
 		);
 		add_theme_support( 'custom-logo', $defaults );
-	   }
-	   add_action( 'after_setup_theme', 'themename_custom_logo_setup' );
-	
-	   
+	   }  
 	register_nav_menus(array('primary' => 'Primary Navigation', 'top-menu' => 'Top Menu'));
 
 	function banner_create_post_type() {
@@ -73,7 +70,6 @@
 		);
 		register_post_type( 'banner', $args );
 	}
-	add_action( 'init', 'banner_create_post_type' );
 	
 	// function to show home page banner using query of banner post type
 	function banner_home_page_banner() { 
@@ -99,9 +95,11 @@
 	Actions and Filters
 	
 	======================================================================================================================== */
-
+	add_action( 'after_setup_theme', 'themename_custom_logo_setup' );
 	add_action( 'wp_enqueue_scripts', 'starkers_script_enqueuer' );
-
+	add_action( 'init', 'banner_create_post_type' );
+	add_action('wp_enque_scripts','load_stylesheets');
+	
 	add_filter( 'body_class', array( 'Starkers_Utilities', 'add_slug_to_body_class' ) );
 
 	/* ========================================================================================================================
@@ -137,7 +135,6 @@
 		wp_register_style( 'style', get_stylesheet_directory_uri().'/style.css', array(), false, 'all' );
         wp_enqueue_style( 'style' );
 	}
-add_action('wp_enque_scripts','load_stylesheets');
 	/* ========================================================================================================================
 	
 	Comments
