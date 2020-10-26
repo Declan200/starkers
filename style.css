@@ -1,26 +1,8 @@
-/*
-Theme Name: 	Starkers
-Theme URI: 		http://viewportindustries.com/products/starkers
-Description: 	The totally nude Wordpress theme!
-Version: 		4.0
-Author: 		Elliot Jay Stocks & Keir Whitaker
-Author URI: 	http://viewportindustries.com
-Tags: 			starkers, naked, clean, basic
-*/
-
-
-/*
 /*!
  * Start Bootstrap - Clean Blog v5.0.9 (https://startbootstrap.com/themes/clean-blog)
  * Copyright 2013-2020 Start Bootstrap
  * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-clean-blog/blob/master/LICENSE)
  */
-
-header {
-    background: white padding;
-    padding: 1rem 0;
-    box-shadow: opx opx 20px rgba(0, 0, 0, 0.25);
-}
 
 body {
     font-size: 20px;
@@ -37,11 +19,7 @@ p a {
     text-decoration: underline;
 }
 
-h1 {
-    font-weight: 800;
-    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-}
-
+h1,
 h2,
 h3,
 h4,
