@@ -24,10 +24,36 @@
 	Uncomment register_nav_menus to enable a single menu with the title of "Primary Navigation" in your theme
 	
 	======================================================================================================================== */
-
+function declans_theme_custom_header_setup() {
+    $defaults = array(
+        // Default Header Image to display
+        'default-image'         => get_template_directory_uri() . '/images/headers/default.jpg',
+        // Display the header text along with the image
+        'header-text'           => true,
+        // Header text color default
+        'default-text-color'        => '000',
+        // Header image width (in pixels)
+        'width'             => 1000,
+        // Header image height (in pixels)
+        'height'            => 198,
+        // Header image random rotation default
+        'random-default'        => false,
+        // Enable upload of image file in admin 
+        'uploads'       => false,
+        // function to be called in theme head section
+        'wp-head-callback'      => 'wphead_cb',
+        //  function to be called in preview page head section
+        'admin-head-callback'       => 'adminhead_cb',
+        // function to produce preview markup in the admin screen
+        'admin-preview-callback'    => 'adminpreview_cb',
+        );
+}
+add_action( 'after_setup_theme', 'declans_theme_custom_header_setup' );
+	
+	add_theme_support( 'custom-header' );
 	add_theme_support('post-thumbnails');
 	// Added dynamic and customisable logo
-	function themename_custom_logo_setup() {
+	function declans_theme_custom_logo_setup() {
 		$defaults = array(
 		'flex-height' => true,
 		'flex-width'  => true,
@@ -108,7 +134,7 @@
 	Actions and Filters
 	
 	======================================================================================================================== */
-	add_action( 'after_setup_theme', 'themename_custom_logo_setup' );
+	add_action( 'after_setup_theme', 'declans_theme_custom_logo_setup' );
 	add_action( 'wp_enqueue_scripts', 'starkers_script_enqueuer' );
 	add_action( 'init', 'banner_create_post_type' );
 	add_action('wp_enque_scripts','load_stylesheets');
@@ -144,7 +170,7 @@
 // enabled bootstrap 
 		wp_register_style( 'bootstrap', get_stylesheet_directory_uri().'/css/bootstrap.min.css', array(), false, 'all' );
         wp_enqueue_style( 'bootstrap' );
-//custom css from style 
+//implemented custom css from style.css 
 		wp_register_style( 'style', get_stylesheet_directory_uri().'/style.css', array(), false, 'all' );
         wp_enqueue_style( 'style' );
 	}
