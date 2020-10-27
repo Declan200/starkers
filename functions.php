@@ -63,56 +63,7 @@ add_action( 'after_setup_theme', 'declanstheme_custom_header_setup' );
 		add_theme_support( 'custom-logo', $defaults );
 	   }  
 	register_nav_menus(array('primary' => 'Primary Navigation'));
-
-	function banner_create_post_type() {
-		$labels = array(
-			'name' => __( 'Banners' ),
-			'singular_name' => __( 'banner' ),
-			'add_new' => __( 'New banner' ),
-			'add_new_item' => __( 'Add New banner' ),
-			'edit_item' => __( 'Edit banner' ),
-			'new_item' => __( 'New banner' ),
-			'view_item' => __( 'View banner' ),
-			'search_items' => __( 'Search banners' ),
-			'not_found' =>  __( 'No banners Found' ),
-			'not_found_in_trash' => __( 'No banners found in Trash' ),
-		);
-		$args = array(
-			'labels' => $labels,
-			'has_archive' => true,
-			'public' => true,
-			'hierarchical' => false,
-			'supports' => array(
-				'title',
-				'editor',
-				'excerpt',
-				'custom-fields',
-				'thumbnail',
-				'page-attributes'
-			),
-			'taxonomies' => array( 'post_tag', 'category'),
-		);
-		register_post_type( 'banner', $args );
-	}
-	
-	// function to show home page banner using query of banner post type
-	function banner_home_page_banner() { 
-		// start by setting up the query
-		$query = new WP_Query( array(
-			'post_type' => 'banner',
-		));
-	 
-		// now check if the query has posts and if so, output their content in a banner-box div
-		if ( $query->have_posts() ) { ?>
-			<div class="banner-box">
-				<?php while ( $query->have_posts() ) : $query->the_post(); ?>
-				<div id="post-<?php the_ID(); ?>" <?php post_class( 'banner' ); ?>><?php the_content(); ?></div>
-				<?php endwhile; ?>
-			</div>
-		<?php }
-		wp_reset_postdata();
-	 
-	}
+	// added nav class functionality
 	function add_class_to_nav_li($classes, $item, $args) {
 		if(isset($args->add_li_class)) {
 		  $classes[] = $args->add_li_class;
