@@ -47,6 +47,7 @@
 <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     <div class="container">
     <div class="mr-2 d-block">
+      <!-- Custom logo here -->
       <?php 
    $custom_logo_id = get_theme_mod( 'custom_logo' );
    $image = wp_get_attachment_image_src( $custom_logo_id , 'full' );
@@ -57,6 +58,7 @@
         Menu
         <i class="fas fa-bars"></i>
       </button>
+      <!-- Create the dynamic menu -->
       <?php wp_nav_menu(array(
   'theme_location' => 'primary',
   'depth' => 2, // 1 no dropdown, 2 dropdowns
@@ -71,6 +73,7 @@
     </div>
   </nav>
   <!-- Page Header -->
+  <!-- if-else statement below manages the banner image of the site displaying a grey box if no image is selected -->
 		<?php if ( get_header_image() ) : ?>
   <header class="masthead" style="background-image: url('<?php header_image() ?>')">
 	  <?php else: ?>
