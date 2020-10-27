@@ -47,13 +47,11 @@
 <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     <div class="container">
     <div class="mr-2 d-block">
-      <!-- <a class="navbar-brand" href="index.html">Start Bootstrap</a> -->
       <?php 
    $custom_logo_id = get_theme_mod( 'custom_logo' );
    $image = wp_get_attachment_image_src( $custom_logo_id , 'full' );
       ?>
 <img src="<?php echo $image[0]; ?>" alt="">
-      <a class="navbar-brand" href="<?php echo home_url(); ?>"><?php bloginfo( 'name' ); ?></a>
       </div>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         Menu
@@ -63,42 +61,31 @@
   'theme_location' => 'primary',
   'depth' => 2, // 1 no dropdown, 2 dropdowns
   'container' => 'div',
-  'container_class' => 'collapse navbar-collapse ml-4',
+  'container_class' => 'collapse navbar-collapse text-center',
 	'container_id' => 'navbarResponsive',
   'menu_class' => 'navbar-nav',
 	'add_li_class' => 'nav-item',
 	'add_a_class' => 'nav-link'
 )); ?>
-      <!-- <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="index.html">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="about.html">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="post.html">Sample Post</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="contact.html">Contact</a>
-          </li>
-        </ul>
-      </div> -->
+		<?php get_search_form(); ?>
     </div>
   </nav>
-
   <!-- Page Header -->
-  <header class="masthead" style="background-image: url('img/home-bg.jpg')">
+		<?php if ( get_header_image() ) : ?>
+  <header class="masthead" style="background-image: url('<?php header_image() ?>')">
+	  <?php else: ?>
+	   <header class="masthead">
+		   <?php endif; ?>
     <div class="overlay"></div>
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="site-heading">
-            <h1>Declans Website</h1>
-            <span class="subheading">Your heading</span>
-          </div>
-        </div>
-      </div>
+            <h1 class="display-1"><?php bloginfo( 'name' ); ?></h1>
+            <span class="subheading"><?php echo get_bloginfo('description') ?></span>
+           </div>
+         </div>
+      	</div>
     </div>
   </header>
+<div class="container my-5 py-5 h-100">

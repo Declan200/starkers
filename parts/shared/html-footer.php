@@ -1,5 +1,6 @@
 
-	<?php wp_footer(); ?>
+</div>	
+<?php wp_footer(); ?>
 	<!-- Footer -->
 	<footer>
     <div class="container">
@@ -31,7 +32,7 @@
               </a>
             </li>
           </ul>
-          <p class="copyright text-muted">Copyright &copy; Your Website 2020</p>
+          <p class="copyright text-muted">Copyright &copy; <?php echo date("Y"); ?> <?php bloginfo( 'name' ); ?>. All rights reserved.</p>
         </div>
       </div>
     </div>
