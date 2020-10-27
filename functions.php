@@ -38,7 +38,7 @@
 		);
 		add_theme_support( 'custom-logo', $defaults );
 	   }  
-	register_nav_menus(array('primary' => 'Primary Navigation', 'top-menu' => 'Top Menu'));
+	register_nav_menus(array('primary' => 'Primary Navigation'));
 
 	function banner_create_post_type() {
 		$labels = array(
@@ -89,6 +89,21 @@
 		wp_reset_postdata();
 	 
 	}
+	function add_class_to_nav_li($classes, $item, $args) {
+		if(isset($args->add_li_class)) {
+		  $classes[] = $args->add_li_class;
+		}
+		return $classes;
+	  }
+	  add_filter('nav_menu_css_class', 'add_class_to_nav_li', 1, 3);
+	  
+	  function add_class_to_nav_a($classes, $item, $args) {
+		if(isset($args->add_a_class)) {
+		  $classes[] = $args->add_a_class;
+		}
+		return $classes;
+	  }
+	  add_filter('nav_menu_css_class', 'add_class_to_nav_a', 1, 3);
 
 	/* ========================================================================================================================
 	

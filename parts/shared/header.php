@@ -14,7 +14,7 @@
 		'theme_location' => 'top-menu'
 	)
 	);?>
-	<!-- Ensures banner only appear on the home page -->
+	<!-- Ensures banner only appears on the home page -->
 	<?php if ( is_front_page() ) {
     banner_home_page_banner();
 }

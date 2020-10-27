@@ -51,7 +51,17 @@
         Menu
         <i class="fas fa-bars"></i>
       </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
+      <?php wp_nav_menu(array(
+  'theme_location' => 'primary',
+  'depth' => 2, // 1 no dropdown, 2 dropdowns
+  'container' => 'div',
+  'container_class' => 'collapse navbar-collapse ml-4',
+	'container_id' => 'navbarResponsive',
+  'menu_class' => 'navbar-nav',
+	'add_li_class' => 'nav-item',
+	'add_a_class' => 'nav-link'
+)); ?>
+      <!-- <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
             <a class="nav-link" href="index.html">Home</a>
@@ -66,7 +76,7 @@
             <a class="nav-link" href="contact.html">Contact</a>
           </li>
         </ul>
-      </div>
+      </div> -->
     </div>
   </nav>
 
