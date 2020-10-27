@@ -24,7 +24,7 @@
 	Uncomment register_nav_menus to enable a single menu with the title of "Primary Navigation" in your theme
 	
 	======================================================================================================================== */
-function declans_theme_custom_header_setup() {
+function declanstheme_custom_header_setup() {
     $defaults = array(
         // Default Header Image to display
         'default-image'         => get_template_directory_uri() . '/images/headers/default.jpg',
@@ -48,12 +48,12 @@ function declans_theme_custom_header_setup() {
         'admin-preview-callback'    => 'adminpreview_cb',
         );
 }
-add_action( 'after_setup_theme', 'declans_theme_custom_header_setup' );
+add_action( 'after_setup_theme', 'declanstheme_custom_header_setup' );
 	
 	add_theme_support( 'custom-header' );
 	add_theme_support('post-thumbnails');
 	// Added dynamic and customisable logo
-	function declans_theme_custom_logo_setup() {
+	function declanstheme_custom_logo_setup() {
 		$defaults = array(
 		'flex-height' => true,
 		'flex-width'  => true,
@@ -134,7 +134,7 @@ add_action( 'after_setup_theme', 'declans_theme_custom_header_setup' );
 	Actions and Filters
 	
 	======================================================================================================================== */
-	add_action( 'after_setup_theme', 'declans_theme_custom_logo_setup' );
+	add_action( 'after_setup_theme', 'declanstheme_custom_logo_setup' );
 	add_action( 'wp_enqueue_scripts', 'starkers_script_enqueuer' );
 	add_action( 'init', 'banner_create_post_type' );
 	add_action('wp_enque_scripts','load_stylesheets');
@@ -170,7 +170,7 @@ add_action( 'after_setup_theme', 'declans_theme_custom_header_setup' );
 // enabled bootstrap 
 		wp_register_style( 'bootstrap', get_stylesheet_directory_uri().'/css/bootstrap.min.css', array(), false, 'all' );
         wp_enqueue_style( 'bootstrap' );
-//implemented custom css from style.css 
+//custom css from style 
 		wp_register_style( 'style', get_stylesheet_directory_uri().'/style.css', array(), false, 'all' );
         wp_enqueue_style( 'style' );
 	}
