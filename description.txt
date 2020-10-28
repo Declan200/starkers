@@ -1,0 +1,24 @@
+I created this theme by taking the Index.html file and the Style.css file from the github 
+repository https://github.com/BlackrockDigital/startbootstrap-clean-blog. I also used the provided
+starkers starter theme: https://github.com/aaronallport/starkers. I opted to use the starkers starter theme
+as I have never built a wordpress theme let alone used wordpress until I undertook this challenge.
+
+My process is as follows, I forked the starkers github repo, then I pulled that using my github 
+application and opened it with vscode. After this is merged the index.html file
+into the starkers header.html and footer.html sections, and added the style.css to the starker file's style.css 
+folder.
+
+After this I went through all the static html and converted the necessary portions into php so that the website
+would be dynamic, this took me some time as it was a first for me. Following this, I began implementing the required 
+functionality one by one. First the logo and banner, I refered to the wordpress documentation on how to 
+implement these features. Once I had implemented these two features, I wrote some basic php to make
+the navbar in the html-header.php file dynamic. After this I implmented the required content sections
+using advanced custom fields plugin, the only section which I could not implement using ACF was the blog section
+and this is because I had a lot of trouble with the starkers barebones functionality for the blog section.
+
+Finally, I decided to check if everything was working on a different pc with a fresh install of wordpress,
+unfortunately my ACFs did not transfer in the manner I was expecting, thus I have reverted the code back
+to a state prior to having the ACFs, the hard coded stuff for the ACFS of course was fine, however the plugin data
+did not transfer, as I am totally new to wordpress and using plugsin, I did not realise this would be the case.
+I did attempt to fix the problem by following the ACFs documentation, however, I have run out of time and thus I
+had to revert to the prior state.
